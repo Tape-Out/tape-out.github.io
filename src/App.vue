@@ -24,16 +24,7 @@ import { shelves, manifest } from './data';
     </header>
 
 
-    <svg class="cloud" viewBox="0 0 220 44" aria-hidden="true" focusable="false">
-      <path
-        d="M4 22 H40 V15 H56 V22 H216 M4 22 V10 H28 V19 H17 V15 H23 M4 22 V34 H28 V25 H17 V29 H23"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="1.15"
-        stroke-linecap="square"
-        stroke-linejoin="miter"
-      />
-    </svg>
+    <hr class="rule" />
 
     <section class="shelves" aria-label="目录">
       {% for s in shelves, :key="s.key" %}
@@ -84,6 +75,7 @@ import { shelves, manifest } from './data';
   display block
   width 100%
   margin 1.1rem 0 0
+  padding 0 .7rem
   font-family var(--serif)
   font-size .82rem
   font-weight 300
@@ -121,12 +113,11 @@ import { shelves, manifest } from './data';
   display block
   white-space pre
 
-.cloud
-  display block
-  width 12rem
-  height auto
-  margin 4.2rem 0 0
-  color var(--glaze)
+.rule
+  width 6rem
+  margin 4.4rem 0 0
+  border 0
+  border-top 1px solid var(--glaze)
 
 .shelves
   display grid

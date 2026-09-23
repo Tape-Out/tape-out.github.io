@@ -15,11 +15,11 @@ export const shelves: Shelf[] = [
 export const manifest: string[] = [
   'name: gpio',
   'params:',
-  '  numPins: { values: [8, 16, 32], default: 32 }',
+  '  numPins:  { values: [8, 16, 32], default: 32 }',
   'features:',
-  '  irq:     { default: true }',
-  'guards:',
-  '  - when:   { irq: false }',
-  '    narrow: { numPins: [8, 16] }',
-  '    why:    没有中断时用不上那么多针',
+  '  irq:      { default: true }',
+  'contract:',
+  '  ctrl:     { shape: regif, aw: 8, dw: 32 }',
+  'emit:',
+  '  pins:     [{ name: pins, type: GpioPins }]',
 ];
