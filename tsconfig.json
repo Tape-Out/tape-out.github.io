@@ -22,5 +22,10 @@
     "src/**/*.ts",
     "src/**/*.vue",
     "vite.config.ts"
-  ]
+  ],
+  "vueCompilerOptions": {
+    "plugins": [
+      "@subwaytime/fumi/volar"
+    ]
+  }
 }

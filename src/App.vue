@@ -2,7 +2,7 @@
 import { shelves, manifest } from './data';
 </script>
 
-<template>
+<template lang="fumi">
   <main class="page">
     <header class="hero">
       <div class="naming">
@@ -13,25 +13,25 @@ import { shelves, manifest } from './data';
           >壤</span>
         </h1>
         <p class="latin">Xirang</p>
-        <p class="lead">把硬件做成能搭的积木。<br />一套规范，一个包管理器。</p>
+        <p class="lead">硬件按件装配。<br />一套规范，一个包管理器。</p>
       </div>
 
-      <pre class="manifest"><code><span
-        v-for="line in manifest"
-        :key="line"
+      <pre class="manifest"><code>{% for line in manifest, :key="line" %}<span
         class="row"
-      >{{ line }}</span></code></pre>
+      >{{ line }}</span>{% endfor %}</code></pre>
     </header>
 
     <section class="shelves" aria-label="目录">
-      <div v-for="s in shelves" :key="s.key" class="shelf">
+      {% for s in shelves, :key="s.key" %}
+      <div class="shelf">
         <h2>{{ s.name }}</h2>
         <p>{{ s.note }}</p>
       </div>
+      {% endfor %}
     </section>
 
     <footer class="foot">
-      <p>这一版只钉技术栈。目录还是写死的，成品由工具导出生成。</p>
+      <a href="https://github.com/Tape-Out">源码在 GitHub</a>
     </footer>
   </main>
 </template>
@@ -81,10 +81,10 @@ import { shelves, manifest } from './data';
   font-family var(--mono)
   font-size .72rem
   line-height 2.05
+  color var(--soft)
 
   @media (min-width: 46rem)
     font-size .78rem
-  color var(--soft)
 
   @media (min-width: 62rem)
     padding-top 2.1rem
@@ -122,9 +122,16 @@ import { shelves, manifest } from './data';
 
 .foot
   margin-top 4.5rem
-  color var(--soft)
-  font-size .85rem
+  font-size .9rem
 
-  p
-    margin 0
+  a
+    color var(--soft)
+    text-decoration none
+    border-bottom 1px solid transparent
+    transition border-color .2s
+
+    &:hover,
+    &:focus-visible
+      color var(--ink)
+      border-bottom-color var(--glaze)
 </style>
