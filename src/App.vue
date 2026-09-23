@@ -6,13 +6,15 @@ import { shelves, manifest } from './data';
   <main class="page">
     <header class="hero">
       <div class="naming">
-        <h1 class="mark" aria-label="息壤">
-          <span class="glyph" aria-hidden="true">息</span><span
-            class="glyph two"
-            aria-hidden="true"
-          >壤</span>
-        </h1>
-        <p class="latin">Xirang</p>
+        <div class="lockup">
+          <h1 class="mark" aria-label="息壤 Xirang">
+            <span class="glyph" aria-hidden="true">息</span><span
+              class="glyph two"
+              aria-hidden="true"
+            >壤</span>
+          </h1>
+          <p class="latin" aria-hidden="true"><span>X</span> <span>i</span> <span>R</span> <span>a</span> <span>n</span> <span>g</span></p>
+        </div>
         <p class="lead">硬件按件装配。<br />一套规范，一个包管理器。</p>
       </div>
 
@@ -20,6 +22,18 @@ import { shelves, manifest } from './data';
         class="row"
       >{{ line }}</span>{% endfor %}</code></pre>
     </header>
+
+
+    <svg class="cloud" viewBox="0 0 220 44" aria-hidden="true" focusable="false">
+      <path
+        d="M4 22 H100 M120 22 H216 M4 22 V10 H28 V19 H17 V15 H23 M4 22 V34 H28 V25 H17 V29 H23 M216 22 V10 H192 V19 H203 V15 H197 M216 22 V34 H192 V25 H203 V29 H197"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.15"
+        stroke-linecap="square"
+        stroke-linejoin="miter"
+      />
+    </svg>
 
     <section class="shelves" aria-label="目录">
       {% for s in shelves, :key="s.key" %}
@@ -51,26 +65,37 @@ import { shelves, manifest } from './data';
     grid-template-columns minmax(0, 1.05fr) minmax(0, .95fr)
     gap 4rem
 
+// 汉字定宽，拉丁在同一个框里撑满：改字号不用重调字距
+.lockup
+  display inline-block
+
 .mark
   margin 0
   font-family var(--song)
   font-weight 300
-  font-size clamp(4.5rem, 15vw, 8.5rem)
-  line-height .96
-  letter-spacing .04em
+  font-size clamp(4.2rem, 14vw, 7.6rem)
+  line-height 1
+  letter-spacing 0
 
 .glyph
   display inline-block
 
 .latin
-  margin 1rem 0 0
+  display block
+  width 100%
+  margin 1.1rem 0 0
   font-family var(--serif)
-  font-style italic
-  font-size 1.15rem
+  font-size .82rem
+  font-weight 300
   color var(--soft)
+  text-align justify
+  text-align-last justify
+
+  span
+    display inline-block
 
 .lead
-  margin 2.4rem 0 0
+  margin 2.6rem 0 0
   font-size clamp(1.15rem, 2.4vw, 1.4rem)
   line-height 1.85
   max-width 22em
@@ -96,10 +121,17 @@ import { shelves, manifest } from './data';
   display block
   white-space pre
 
+.cloud
+  display block
+  width 12rem
+  height auto
+  margin 4.2rem 0 0
+  color var(--glaze)
+
 .shelves
   display grid
   gap 2.9rem 3.5rem
-  margin-top 5rem
+  margin-top 3.4rem
   align-content start
 
   @media (min-width: 46rem)
@@ -128,7 +160,7 @@ import { shelves, manifest } from './data';
     color var(--soft)
     text-decoration none
     border-bottom 1px solid transparent
-    transition border-color .2s
+    transition border-color .2s, color .2s
 
     &:hover,
     &:focus-visible

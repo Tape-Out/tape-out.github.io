@@ -40,20 +40,20 @@ body
   outline 2px solid var(--celadon)
   outline-offset 3px
 
-// 入场只此一处：两个字先后落定。名字的意思是「会长」，这一下就够了
+// 入场只此一处：两字自中轴落定。名字的意思是「会长」，这一下就够了
 @keyframes settle
   from
     opacity 0
-    transform translateY(.32em)
+    transform translateY(.22em)
   to
     opacity 1
     transform none
 
 .glyph
-  animation settle .9s cubic-bezier(.2, .7, .2, 1) both
+  animation settle 1.1s cubic-bezier(.2, .7, .2, 1) both
 
 .glyph.two
-  animation-delay .11s
+  animation-delay .13s
 
 @media (prefers-reduced-motion: reduce)
   .glyph
