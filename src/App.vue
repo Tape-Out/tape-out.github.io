@@ -26,7 +26,7 @@ import { shelves, manifest } from './data';
 
     <svg class="cloud" viewBox="0 0 220 44" aria-hidden="true" focusable="false">
       <path
-        d="M4 18 H28 V6 H10 V14 H22 V10 M4 26 H28 V38 H10 V30 H22 V34 M216 18 H192 V6 H210 V14 H198 V10 M216 26 H192 V38 H210 V30 H198 V34 M38 22 H98 M122 22 H182"
+        d="M4 22 H40 V15 H56 V22 H216 M4 22 V10 H28 V19 H17 V15 H23 M4 22 V34 H28 V25 H17 V29 H23"
         fill="none"
         stroke="currentColor"
         stroke-width="1.15"
