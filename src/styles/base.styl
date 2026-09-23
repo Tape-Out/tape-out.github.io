@@ -1,0 +1,60 @@
+// 青瓷与墨。名字出自《山海经》的会自己生长的土，所以配色走中式古典一路，
+// 不走那套奶油底加陶土橙
+:root
+  --ground #edefea
+  --ink #1a201c
+  --soft #5d6660
+  --celadon #4e6b63
+  --glaze #7c9a92
+  --serif 'Spectral', Georgia, serif
+  --song 'Noto Serif SC', 'Songti SC', serif
+  --mono 'IBM Plex Mono', ui-monospace, monospace
+
+@media (prefers-color-scheme: dark)
+  :root
+    --ground #141917
+    --ink #e6eae3
+    --soft #9aa39c
+    --celadon #8fb2a7
+    --glaze #5e7a72
+
+*,
+*::before,
+*::after
+  box-sizing border-box
+
+html
+  -webkit-text-size-adjust 100%
+
+body
+  margin 0
+  background var(--ground)
+  color var(--ink)
+  font-family var(--serif), var(--song)
+  font-size 16px
+  line-height 1.6
+  -webkit-font-smoothing antialiased
+  text-rendering optimizeLegibility
+
+:focus-visible
+  outline 2px solid var(--celadon)
+  outline-offset 3px
+
+// 入场只此一处：两个字先后落定。名字的意思是「会长」，这一下就够了
+@keyframes settle
+  from
+    opacity 0
+    transform translateY(.32em)
+  to
+    opacity 1
+    transform none
+
+.glyph
+  animation settle .9s cubic-bezier(.2, .7, .2, 1) both
+
+.glyph.two
+  animation-delay .11s
+
+@media (prefers-reduced-motion: reduce)
+  .glyph
+    animation none
